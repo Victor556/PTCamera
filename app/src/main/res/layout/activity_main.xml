@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:id="@+id/rootView"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@android:color/black"
+             android:padding="0dp"
+             tools:context=".CameraActivity">
+
+    <com.putao.ptx.camera.view.CameraSurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:padding="0dp"
+        android:translationZ="-1dp"/>
+
+    <RelativeLayout
+        android:id="@+id/rlMainlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="0dp"
+        android:translationZ="0dp">
+
+        <!--<com.putao.ptx.camera.view.CameraSurfaceView-->
+        <!--android:id="@+id/surfaceView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignWithParentIfMissing="true"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:padding="0dp"-->
+        <!--android:translationZ="-1dp"/>-->
+
+        <!--<FrameLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:padding="0dp"-->
+        <!--android:translationZ="-2dp">-->
+
+        <!--</FrameLayout>-->
+        <!--android:layout_alignWithParentIfMissing="true"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentTop="true"-->
+
+        <ImageView
+            android:id="@+id/blur"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_margin="0dp"
+            android:background="@color/black_000000"
+            android:scaleType="centerCrop"
+            android:translationZ="-1dp"
+            android:visibility="gone"/>
+
+        <SeekBar
+            android:id="@+id/pbPanPic"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:background="@drawable/bkg_pan_progress_bar"
+            android:clickable="false"
+            android:indeterminate="false"
+            android:max="100"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:progress="100"
+            android:progressDrawable="@drawable/pan_progress_bar"
+            android:thumb="@drawable/quanjing_progress"
+            android:thumbOffset="0dp"
+            android:translationZ="1dp"
+            android:visibility="invisible"/><!--svg_thumb-->
+
+        <com.putao.ptx.camera.view.MenuView
+            android:id="@+id/tvTime"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            android:gravity="center"
+            android:minHeight="46dp"
+            android:text="00:00"
+            android:textColor="@color/white_FFFFFF"
+            android:textSize="@dimen/text_size_45sp"
+            android:translationZ="1dp"
+            android:visibility="visible"/><!--android:layout_alignParentTop="true"-->
+
+        <com.putao.ptx.camera.view.CircleMenuLayout
+            android:id="@+id/controlMenu"
+            android:layout_width="400dp"
+            android:layout_height="310dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="-92dp"
+            android:padding="0dp"
+            android:translationZ="1dp"/>
+        <!--245dp--><!--android:background="@drawable/bg_kuaimen"-->
+
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="310dp"
+            android:layout_alignBottom="@id/controlMenu"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/controlMenu"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="92dp"
+            android:padding="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_kuaimen"
+            android:translationZ="0dp"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/ivSwitchCamera"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_above="@id/controlMenu"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="35dp"
+            android:background="@android:color/transparent"
+            android:scaleType="center"
+            android:src="@drawable/selector_xuanzhuan"
+            android:translationZ="0dp"/><!--88 ?android:attr/selectableItemBackground-->
+        <com.putao.ptx.camera.view.CircleImageView
+            android:id="@+id/ivAlbum"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/controlMenu"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="30dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/selector_xiance"
+            android:translationZ="0dp"
+            app:border_color="@color/white_FFFFFF"
+            app:border_width="2dp"/><!--android:layout_marginTop="88dp"-->
+
+        <ImageView
+            android:id="@+id/ivSmailControl"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="36dp"
+            android:background="@android:color/transparent"
+            android:scaleType="center"
+            android:src="@drawable/weixiao_normal"
+            android:translationZ="0dp"/><!--?android:attr/selectableItemBackground-->
+
+
+        <View
+            android:layout_width="2048px"
+            android:layout_height="1500dp"
+            android:layout_toLeftOf="@id/ivSmailControl"
+            /><!--辅助其他视图显示-->
+
+        <View
+            android:layout_width="2048px"
+            android:layout_height="300dp"
+            android:layout_below="@id/ivAlbum"
+            /><!--辅助其他视图显示-->
+
+        <View
+            android:layout_width="2048px"
+            android:layout_height="300dp"
+            android:layout_above="@id/ivSwitchCamera"
+            /><!--辅助其他视图显示-->
+
+
+        <TextView
+            android:id="@+id/tvDownCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="5"
+            android:textColor="@color/white_FFFFFF"
+            android:textSize="190sp"
+            android:visibility="gone"/>
+
+        <SeekBar
+            android:id="@+id/sbZoom"
+            android:layout_width="288dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:indeterminate="false"
+            android:max="100"
+            android:padding="20dp"
+            android:progress="1"
+            android:progressDrawable="@drawable/seekbar_bg"
+            android:thumb="@drawable/jiaoju_normal"
+            android:translationZ="0dp"
+            android:visibility="gone"/>
+
+
+        <View
+            android:id="@+id/blackView"
+            android:layout_width="2000dp"
+            android:layout_height="2000dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_margin="0dp"
+            android:background="@color/black_000000"
+            android:translationZ="1dp"
+            android:visibility="gone"/>
+
+        <com.putao.ptx.camera.view.CameraView
+            android:id="@+id/cameraView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:translationZ="-1dp"
+            android:visibility="visible"/>
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/focusView"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_gravity="right|bottom"
+        android:focusable="true"
+        android:scaleType="fitXY"
+        android:translationZ="5dp"
+        android:visibility="gone"/>
+    <!--android:background="@drawable/ic_focus_focusing"-->
+
+    <EditText
+        android:id="@+id/speed"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:hint="速度：80-2000"
+        android:inputType="number"
+        android:text="80"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/sleep"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="200dp"
+        android:hint="暂停时间"
+        android:inputType="number"
+        android:text="1500"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/acc"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="150dp"
+        android:gravity="center"
+        android:text="加速度"
+        android:textSize="30sp"
+        android:visibility="gone"/>
+</FrameLayout>

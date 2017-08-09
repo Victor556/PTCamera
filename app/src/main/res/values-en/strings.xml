@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Camera</string>
+    <string name="no_smail_tip">Let me see your smiling face!</string>
+    <string name="voice_mode">AUDIO</string>
+    <string name="common_mode">PHOTO</string>
+    <string name="video_mode">VIDEO</string>
+    <string name="panorama_mode">PANO</string>
+    <string name="camera_error">error</string>
+    <string name="camera_error_msg">An error occurred while opening the camera!</string>
+    <string name="common_confirm">OK</string>
+
+    <string name="voice_pic_tip">To take pictures, and then sound recording 10S</string>
+    <string name="voice_pic_tip_tts">To take pictures, and then sound recording ten seconds</string>
+    <string name="start_take_tip">Prepare</string>
+    <string name="start_take_one">3</string>
+    <string name="start_take_two">2</string>
+    <string name="start_take_thress">1</string>
+    <string name="start_take_one_tts">one</string>
+    <string name="start_take_two_tts">two</string>
+    <string name="start_take_three_tts">three</string>
+    <string name="smail_take_tip">See your smiling face, I take pictures</string>
+    <string name="camera_mode_voice">AUDIO</string>
+    <string name="camera_mode_common">PHOTO</string>
+    <string name="camera_mode_video">VIDEO</string>
+    <string name="camera_mode_panorama">PANO</string>
+
+    <string name="adjust_angle">Adjust the angle, ready to shoot!</string>
+    <string name="start_shooting">Start shooting!</string>
+    <string name="photo_is_taken">Photo is taken!</string>
+    <string name="photo_is_taken_chek">Photo is taken！</string>
+
+    <string name="pano_shoot_complete">Panorama shooting is complete!</string>
+    <string name="pano_synthesis_complete">Panorama completion of the synthesis!</string>
+    <string name="pano_synthesis_err">Panorama synthesis error!</string>
+    <string name="pano_synthesis">Panorama synthesis</string>
+    <string name="pano_synthesising">Panorama shooting is synthesising！</string><!--Panorama shooting is synthesising, please wait...-->
+    <string name="docking_low_battery_level">The base power is low, please charge as soon as possible!</string>
+    <string name="tips_no_docking">Use of panoramic camera, please put me in the base!</string>
+    <string name="has_stopped_pano">已终止全景拍摄！</string>
+    <string name="pleaseInstallAccount">Please install personal center!</string>
+    <string name="low_battery_warning15">Low power, whether to continue shotting?</string>
+    <string name="confirm">Determine</string>
+    <string name="cancel">Cancel</string>
+    <string name="low_battery_warning7">Too low power level, it could not shot any more!</string>
+    <string name="sdcard_no_space">Insufficient storage space in %1$s！</string>
+    <string name="open_motor">Turn on the docking motors , please...</string>
+    <string name="i_know">I have know!</string>
+
+</resources>

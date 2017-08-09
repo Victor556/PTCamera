@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">相机</string>
+    <string name="no_smail_tip">让我看到你的笑脸</string>
+    <string name="voice_mode">有声</string>
+    <string name="common_mode">拍照</string>
+    <string name="video_mode">视频</string>
+    <string name="panorama_mode">全景</string>
+    <string name="camera_error">错误</string>
+    <!--<string name="camera_error_msg">抱歉！相机打开时发生错误，请重新打开相机或者重启设备！</string>-->
+    <string name="camera_error_msg">摄像头被其他应用占用，\n请清除后台摄像头相关应用！</string>
+    <string name="common_confirm">确定</string>
+
+    <string name="voice_pic_tip">先拍照，随后录制10秒声音！</string>
+    <string name="voice_pic_tip_tts">@string/voice_pic_tip</string>
+    <string name="start_take_tip">准备</string>
+    <string name="start_take_one">1</string>
+    <string name="start_take_two">2</string>
+    <string name="start_take_thress">3</string>
+    <string name="start_take_one_tts">@string/start_take_one</string>
+    <string name="start_take_two_tts">@string/start_take_two</string>
+    <string name="start_take_three_tts">@string/start_take_thress</string>
+    <string name="smail_take_tip">看到你的笑脸 我就拍照！</string>
+    <string name="camera_mode_voice">有声</string>
+    <string name="camera_mode_common">拍照</string>
+    <string name="camera_mode_video">视频</string>
+    <string name="camera_mode_panorama">全景</string>
+
+    <string name="adjust_angle">调整姿势，准备拍摄！</string>
+    <string name="start_shooting">开始拍摄！</string>
+    <string name="photo_is_taken">拍摄完成！</string>
+    <string name="photo_is_taken_chek">拍摄完成，来看看吧！</string>
+
+    <string name="pano_shoot_complete">全景照片拍摄完成！</string>
+    <string name="pano_synthesis_complete">全景照片合成完成！</string>
+    <string name="pano_synthesis_err">全景照片合成出错！</string>
+    <string name="pano_synthesis">全景合成</string>
+    <string name="pano_synthesising">正在合成全景照片！</string>
+    <string name="docking_low_battery_level">底座电力较低，请尽快充电！</string>
+    <string name="tips_no_docking">请先把我放入底座！</string><!--使用全景拍照功能，请先把我放入底座！-->
+    <string name="has_stopped_pano">已终止全景拍摄！</string>
+    <string name="pleaseInstallAccount">请安装个人中心</string>
+    <string name="low_battery_warning15">电量低，是否继续拍摄?</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="low_battery_warning7">电量过低，无法继续拍摄！</string>
+    <string name="sdcard_no_space">存储空间不足%1$sM！</string>
+    <string name="open_motor">底座没有打开，请先长按底部开关开启底座！</string>
+    <string name="i_know">知道了！</string>
+</resources>

@@ -1,0 +1,137 @@
+apply plugin: 'com.android.library'
+//apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+//        applicationId "com.putao.ptx.image.panorama"
+        minSdkVersion 18
+        targetSdkVersion 22
+        versionCode 5
+        versionName "1.0.2"
+
+//        buildConfigField 'String', 'FLAVOR_DEV', "\"dev\""
+//        buildConfigField 'String', 'FLAVOR_INNERTEST', "\"innerTest\""
+//        buildConfigField 'String', 'FLAVOR_ONLINE', "\"online\""
+    }
+
+
+
+    sourceSets {
+        main {
+            manifest {
+                // there's only ever one file so srcFile replaces it.
+                srcFile 'AndroidManifest.xml'
+            }
+
+            jniLibs.srcDirs = ['libs', 'ext-jnilibs']
+
+            java {
+                // writing:
+                //    srcDir 'src'
+                // would *add* to the default folder so we use a different syntax
+                srcDirs = ['src']
+                //exclude 'some/unwanted/packageName/**'
+            }
+            res {
+                srcDirs = ['res']
+            }
+            resources {
+                srcDirs = ['src']
+            }
+            aidl {
+                srcDirs = ['src']
+            }
+        }
+
+        // this moves src/androidTest to tests so all folders follow:
+        // tests/java, tests/res, tests/assets, ...
+        // This is a *reset* so it replaces the default paths
+        //androidTest.setRoot('tests')
+
+        // Could also be done with:
+        //main.manifest.srcFile 'AndroidManifest.xml'
+        //main.java.srcDir 'src'
+        //main.res.srcDir 'res'
+        //main.assets.srcDir 'assets'
+        //main.resources.srcDir 'src'
+        //androidTest.java.srcDir 'tests/src'
+    }
+
+      lintOptions {
+          checkReleaseBuilds false
+          // Or, if you prefer, you can continue to check for errors in release builds,
+          // but continue the build even when errors are found:
+          abortOnError false
+      }
+
+    buildTypes {
+        release {
+//            signingConfig signingConfigs.putao
+            zipAlignEnabled true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+//    signingConfigs {
+//        config {
+//            storeFile file("com.putao.sign.jks")
+//            storePassword "123456"
+//            keyAlias "com.putao"
+//            keyPassword "putao123"
+//        }
+//        putao {
+//            storeFile file(System.getenv("HOME") + "/keystore/putao.keystore")
+//            storePassword "putao123"
+//            keyAlias "ptx"
+//            keyPassword "putao123"
+//        }
+//    }
+//
+//    productFlavors {
+//        dev {
+////            versionName defaultConfig.versionName + '-dev'
+//        }
+//
+//        innerTest {
+////            versionName = defaultConfig.versionName + '-test'
+//        }
+//
+//        online {
+////            versionName = defaultConfig.versionName + '-online'
+//        }
+//    }
+//
+//    applicationVariants.all {
+//        variant ->
+//            variant.outputs.each {
+//                output ->
+//                    def outputFile = output.outputFile
+//                    if ("release".equals(variant.buildType.name) && outputFile != null && outputFile.name.endsWith('.apk')) {
+//                        if ('dev'.equals(variant.flavorName)
+//                                || 'innerTest'.equals(variant.flavorName)
+//                                || 'online'.equals(variant.flavorName)) {
+//                            def newName = rootProject.name.concat('-').concat(variant.productFlavors[0].name).concat('-').concat(variant.buildType.name).concat('.apk')
+//                            output.outputFile = new File(output.outputFile.parent, newName)
+//                        }
+//                    }
+//            }
+//    }
+//
+//    task copyApks(type: Copy, dependsOn: build) {
+//        delete "${rootProject.buildDir}/v${defaultConfig.versionName}/"
+//        from "${project.buildDir}/outputs/apk/"
+//        include {
+//            apk -> apk.file.name.contains('release') && !apk.file.name.contains('unaligned')
+//        }
+//        into "${rootProject.buildDir}/v${defaultConfig.versionName}/"
+//    }
+
+}

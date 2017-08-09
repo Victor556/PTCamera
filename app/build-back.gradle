@@ -1,0 +1,228 @@
+import java.text.SimpleDateFormat
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    /*
+    signingConfigs {
+        config {
+            keyAlias 'putao_paipai'
+            keyPassword '123456'
+            storeFile file('/Users/admin/work/backup/PTUI_camera/keystore.jks')
+            storePassword '123456'
+        }
+    }
+    */
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+    defaultConfig {
+        applicationId "com.putao.ptx.camera"
+        minSdkVersion 21
+        targetSdkVersion 22
+        versionCode 54
+        versionName "1.2.1"
+        multiDexEnabled true
+
+
+        buildConfigField 'String', 'FLAVOR_DEV', "\"dev\""
+        buildConfigField 'String', 'FLAVOR_INNERTEST', "\"innerTest\""
+        buildConfigField 'String', 'FLAVOR_ONLINE', "\"online\""
+
+
+        ndk {
+            moduleName "gpuimage-library"
+            //设置支持的SO库架构
+            //abiFilters 'armeabi-v7a'//, 'armeabi-v7a' , 'arm64-v8a' //, 'x86', 'x86_64','armeabi'
+            //abiFilters 'armeabi'//, 'armeabi-v7a' , 'arm64-v8a' //, 'x86', 'x86_64','armeabi'
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a' //, 'x86', 'x86_64','armeabi'
+        }
+    }
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+//    }
+
+    //源码集
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java']
+            aidl.srcDirs = ['src/main/java']
+            jniLibs.srcDirs = ['libs']
+            assets.srcDirs = ['src/main/assets']
+        }
+    }
+
+    signingConfigs {
+        config {
+            storeFile file("com.putao.sign.jks")
+            storePassword "123456"
+            keyAlias "com.putao"
+            keyPassword "putao123"
+        }
+        putao {
+            storeFile file(System.getenv("HOME") + "/keystore/putao.keystore")
+            storePassword "putao123"
+            keyAlias "ptx"
+            keyPassword "putao123"
+        }
+    }
+
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.putao
+//            if ("TRUE".equals(System.getenv()['IS_PATCH'])) {
+//                signingConfig signingConfigs.config//研发人员本地编译执行
+//            } else {
+//                signingConfig signingConfigs.putao//jenkins服务器中编译执行
+//            }
+            zipAlignEnabled true
+            minifyEnabled /*true*/false
+            //shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            splits {
+                abi {
+                    enable true
+                    reset()
+                    //abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+                    include 'arm64-v8a'//'x86', 'armeabi-v7a', 'mips'//只打包v8
+                    exclude 'x86', 'armeabi-v7a', 'mips'
+                    //universalApk true
+                }
+            }
+        }
+
+        debug {
+            signingConfig signingConfigs.config
+            minifyEnabled false
+        }
+    }
+
+    productFlavors {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss")
+        def date = "." + defaultConfig.versionCode + "_".concat(sdf.format(System.currentTimeMillis()))
+        dev {
+//            versionName defaultConfig.versionName + '-dev'
+            versionName defaultConfig.versionName + date
+        }
+        println("java branch———————————> " + System.getenv()['IS_PATCH'])
+        if (!"TRUE".equals(System.getenv()['IS_PATCH'])) {
+            innerTest {
+                versionName = defaultConfig.versionName + '-test'
+            }
+
+            online {
+//            versionName = defaultConfig.versionName + '-online'
+            }
+        }
+
+    }
+
+    task copyApks(type: Copy, dependsOn: build) {
+        delete "${rootProject.buildDir}/v${defaultConfig.versionName}/"
+        from "${project.buildDir}/outputs/apk/"
+        include {
+            apk -> apk.file.name.contains('release') && !apk.file.name.contains('unaligned')
+        }
+        into "${rootProject.buildDir}/v${defaultConfig.versionName}/"
+    }
+    applicationVariants.all {
+        variant ->
+            variant.outputs.each {
+                output ->
+                    def outputFile = output.outputFile
+                    if ("release".equals(variant.buildType.name) && outputFile != null && outputFile.name.endsWith('.apk')) {
+                        if ('dev'.equals(variant.flavorName)
+                                || 'innerTest'.equals(variant.flavorName)
+                                || 'online'.equals(variant.flavorName)) {
+                            def newName = /*rootProject.name*/ 'PTCamera'.concat('-').concat(variant.productFlavors[0].name).concat('-').concat(variant.buildType.name).concat('.apk')
+                            newName = newName.replace('release', 'arm64-v8a-release'+"-v${variant.versionName}")
+                            output.outputFile = new File(output.outputFile.parent, newName)
+                        }
+                    }
+            }
+    }
+
+//    applicationVariants.all {
+//        variant ->
+//            variant.outputs.each {
+//                output ->
+//                    def outputFile = output.outputFile
+//                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                        if (variant.flavorName == 'innerTest' && variant.buildType.name == 'release') {
+//                            def newFileName = 'app-innerTest-unsigned.apk'
+//                            output.outputFile = new File(outputFile.parent, newFileName)
+//                        }
+//                        if (variant.flavorName == 'online' && variant.buildType.name == 'release') {
+//                            def newFileName = 'app-online-unsigned.apk'
+//                            output.outputFile = new File(outputFile.parent, newFileName)
+//                        }
+//                    }
+//            }
+//    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+        preDexLibraries = false
+    }
+    compileOptions {
+        encoding "UTF-8"
+    }
+/*
+    //产品渠道配置
+    productFlavors {
+//        local_release { versionName = "V" + defaultConfig.versionName }
+//        local_debug { versionName = "D" + defaultConfig.versionName }
+        channel_putao { versionName = "" + defaultConfig.versionName }
+        productFlavors.all { flavor ->
+            flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        }
+    }
+*/
+    lintOptions {
+        abortOnError false
+    }
+}
+
+repositories {
+    maven {
+        url "https://jitpack.io"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar', '*.so'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:23.2.0'
+    //compile project(':PTFrameworks')
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+    compile 'com.tencent.bugly:crashreport:latest.release'
+    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.1.5
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    //    compile 'com.putao.account.authenticator:authenticator:0.1.1@aar'
+    //    compile 'com.putao.account.collector:collector:0.1.11-DEV@aar'
+    //compile 'com.putao.account.authenticator:authenticator:0.3.5@aar'
+    compile 'com.putao.ptx:authenticator:0.6.1@aar'
+    ////    debugCompile 'com.putao.account.collector:collector:0.1.11-DEV@aar'
+    ////    releaseCompile 'com.putao.account.authenticator:authenticator:0.3.2@aar'
+    compile 'com.putao.ptx:collector:0.3.2@aar'
+    //compile 'com.putao.ptx.push:library:0.1.7@aar'
+    compile 'com.putao.robotop:xfspeechlib:1.2.4'
+    //compile 'com.github.wseemann:FFmpegMediaMetadataRetriever:1.0.11'
+    //compile files('libs/ffmpeg.jar')
+    compile 'org.jcodec:jcodec-android:0.1.9'
+    compile project(path: ':panarama')
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    testCompile 'junit:junit:4.12'
+
+    // Set this dependency to build and run UI Automator tests
+    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
+}

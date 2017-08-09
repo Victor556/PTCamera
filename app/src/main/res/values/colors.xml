@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black_000000">#000000</color>
+    <color name="yellow_FFFF00">#FFFF00</color>
+    <color name="white_FFFFFF">#FFFFFF</color>
+    <color name="white_99FFFFFF">#99FFFFFF</color>
+    <color name="white_7FFFFFFF">#7FFFFFFF</color>
+    <color name="black_36000000">#36000000</color>
+    <color name="black_4C000000">#4C000000</color>
+    <color name="black_33000000">#33000000</color>
+    <color name="white_DDFFFFFF">#DDFFFFFF</color>
+    <color name="yellow_EEE31A">#EEE31A</color>
+    <color name="yellow_FDCD4D">#FDCD4D</color>
+    <color name="green_9ADE17">#9ADE17</color>
+    <color name="face_detector">#FFFB3B</color>
+    <color name="pano_bar">#35C25B</color>
+
+</resources>

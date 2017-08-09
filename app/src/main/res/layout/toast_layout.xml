@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+          android:id="@+id/tvMsg"
+          android:layout_width="wrap_content"
+          android:layout_height="45dp"
+          android:background="@drawable/shape_toast_back"
+          android:gravity="center"
+          android:minHeight="45dp"
+          android:paddingLeft="20dp"
+          android:paddingRight="20dp"
+          android:text="开始拍摄！"
+          android:textColor="@color/white_FFFFFF"
+          android:textSize="@dimen/text_size_16sp"/>
+    <!--bg_toast--><!--android:layout_width="280dp"-->

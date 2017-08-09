@@ -1,0 +1,60 @@
+<resources>
+
+    <style name="popwin_center__style">
+        <item name="android:windowEnterAnimation">@anim/popwin_center_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/popwin_center_exit_anim</item>
+    </style>
+
+    <style name="popwin_left_style">
+        <item name="android:windowEnterAnimation">@anim/popwin_left_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/popwin_left_exit_anim</item>
+    </style>
+
+    <style name="popwin_right_style">
+        <item name="android:windowEnterAnimation">@anim/popwin_right_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/popwin_right_exit_anim</item>
+    </style>
+
+    <style name="pano_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+
+
+    <style name="CustomTabPageIndicator">
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:maxLines">1</item>
+
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+    </style>
+
+    <style name="myact">
+        <item name="android:activityOpenEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:activityOpenExitAnimation">@android:anim/fade_out</item>
+        <item name="android:activityCloseEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:activityCloseExitAnimation">@android:anim/fade_out</item>
+        <item name="android:taskCloseEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:taskCloseExitAnimation">@android:anim/fade_out</item>
+        <item name="android:taskOpenEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:taskOpenExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+    <style name="StyledIndicators" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="android:colorBackground">@android:color/black</item>
+        <!--<item name="vpiTabPageIndicatorStyle">@style/CustomTabPageIndicator</item>-->
+        <item name="android:windowFullscreen">true</item>
+        <item name="@android:windowAnimationStyle">@style/myact</item>
+    </style>
+
+</resources>

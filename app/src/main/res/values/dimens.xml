@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_menu">19sp</dimen>
+    <dimen name="text_size_45sp">45sp</dimen>
+    <dimen name="width_menu_item">60dp</dimen>
+    <dimen name="height_menu_item">45dp</dimen>
+    <dimen name="text_size_16sp">16sp</dimen>
+    <dimen name="time_margin_top">80dp</dimen>
+</resources>

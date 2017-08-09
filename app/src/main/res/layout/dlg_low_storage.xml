@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="288dp"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:background="@drawable/shape_dlg_pano"
+              android:minWidth="300dp"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:text="@string/sdcard_no_space"
+        android:textColor="#757575"
+        android:textSize="16dp"/>
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/selector_bkg_dlg_btn"
+        android:elevation="0dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="@string/i_know"
+        android:textColor="@color/white_FFFFFF"
+        android:textSize="@dimen/text_size_16sp"/>
+
+</LinearLayout>

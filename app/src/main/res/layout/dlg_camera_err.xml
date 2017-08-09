@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="350dp"
+              android:layout_height="180dp"
+              android:layout_gravity="center"
+              android:background="@drawable/shape_dlg_pano"
+              android:minWidth="300dp"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="@string/camera_error_msg"
+        android:textColor="#df000000"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/btn"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/selector_btn_yes"
+        android:elevation="0dp"
+        android:gravity="center"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="@string/common_confirm"
+        android:textColor="@color/white_FFFFFF"
+        android:textSize="@dimen/text_size_16sp"/>
+
+</LinearLayout>

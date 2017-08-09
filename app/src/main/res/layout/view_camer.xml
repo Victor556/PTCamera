@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <com.putao.ptx.camera.view.CameraSurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+    <com.putao.ptx.camera.view.CameraDrawView
+        android:id="@+id/sdvDrawView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/ivVoicePic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/black_000000"
+        android:scaleType="fitCenter"
+        android:visibility="gone"/><!--fitXY-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/focusView"-->
+        <!--android:layout_width="80dp"-->
+        <!--android:layout_height="80dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:visibility="gone"/>-->
+    <!--&lt;!&ndash;android:background="@drawable/ic_focus_focusing"&ndash;&gt;-->
+</FrameLayout>

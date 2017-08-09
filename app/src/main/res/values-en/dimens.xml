@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_menu">19dp</dimen>
+    <dimen name="width_menu_item">80sp</dimen>
+</resources>
